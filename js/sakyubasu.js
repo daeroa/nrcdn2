@@ -49,7 +49,7 @@ export function divine(name) {
 	        姓名: name,
 	        性别: genderList[Math.floor(rand()*5)],
 	        分类: `${category.type}${category.emoji}`,
-          三围: `${bust.toFixed(1)}cm (${cup}) / ${waist.toFixed(1)}cm / ${hip.toFixed(1)}cm`,
+          	三围: `${bust.toFixed(1)}cm (${cup}) / ${waist.toFixed(1)}cm / ${hip.toFixed(1)}cm`,
 	        身高: `${gen(105, 245).toFixed(1)}cm`,
 	        发色: hairColors[Math.floor(rand()*10)],
 	        经验人数: Math.floor(110 + rand()*991),
