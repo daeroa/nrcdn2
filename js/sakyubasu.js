@@ -27,7 +27,7 @@ const categoryData = [
 ];
 const hairColors = ['玄黑色','银白色','酒红色','珊瑚粉','翡翠绿','琉璃蓝','琥珀金','薄藤紫','砂金色','墨玉灰'];
 	
-export function divine(name) {
+function divine(name) {
 	  const seed = deterministicHash(name);
 	  const rand = createSeededRandom(seed);
 	    
