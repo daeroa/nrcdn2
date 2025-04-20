@@ -50,7 +50,7 @@ export function getluck(username) {
     // 评级计算优化
     const total = luck.wealth + luck.love + luck.career;
     luck.rating = '★'.repeat(Math.round(total / 60)).padEnd(5, '☆');
-    /*
+   
     return `
   【${luck.date}】${username}的今日运势：
   🌸 综合运势：${luck.fortune}
@@ -61,8 +61,8 @@ export function getluck(username) {
   
   ✅ 宜：${luck.should.join('、')}
   ❌ 忌：${luck.avoid.join('、')}
-  `.trim();*/
-    return {
+  `.trim();
+     /*return {
         姓名: `${username}`,
         日期: `${luck.date}`,
         综运: `${luck.fortune}`,
@@ -72,7 +72,7 @@ export function getluck(username) {
         综评: `${luck.rating}`,
         宜: `${luck.should.join('、')}`,
         忌: `${luck.avoid.join('、')}`
-    };
+    };*/
 }
   
 // 辅助函数
