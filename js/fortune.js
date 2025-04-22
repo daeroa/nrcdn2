@@ -62,17 +62,6 @@ export function getluck(username) {
   ✅ 宜：${luck.should.join('、')}
   ❌ 忌：${luck.avoid.join('、')}
   `.trim();
-     /*return {
-        姓名: `${username}`,
-        日期: `${luck.date}`,
-        综运: `${luck.fortune}`,
-        财运: `${luck.wealth}`,
-        桃花: `${luck.love}`,
-        事业: `${luck.career}`,
-        综评: `${luck.rating}`,
-        宜: `${luck.should.join('、')}`,
-        忌: `${luck.avoid.join('、')}`
-    };*/
 }
   
 // 辅助函数
