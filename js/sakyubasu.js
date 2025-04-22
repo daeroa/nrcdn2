@@ -10,7 +10,7 @@ function deterministicHash(name) {
 	
 function createSeededRandom(seed) {
 	return function() {
-	  seed = (seed * 9797 + 49999) % 233280;
+	  seed = (seed * 9797 + 908141) % 233280;
 	  return seed / 233280;
 	};
 }
@@ -31,20 +31,37 @@ const hairColors = ['玄黑色','银白色','酒红色','珊瑚粉','翡翠绿',
 export function divine(name) {
 	const seed = deterministicHash(name);
 	const rand = createSeededRandom(seed);
-	    
-  // 数值生成器
 	const gen = (min, max, precision=1) => 
 	  Number((min + rand()*(max-min)).toFixed(precision));
-	    
-	// 分类选择
 	const category = categoryData[Math.floor(rand()*8)];
-	    
-	// 三围生成（符合人体工学比例）
-  	// 你妈了个逼的位置不一样结果也不一样是吧
-	const bust = gen(75, 115);
-	const waist = gen(bust*0.6, bust*0.75);
-	const hip = gen(bust*0.8, bust*1.1);
-	const cup = String.fromCharCode(65 + Math.min(13, Math.floor((bust-75)/3.5)));
+	// 才发现有问题啊啊啊
+        const underbust = gen(65, 95); // 下胸围一般在这个范围
+        const bust = gen(underbust + 10, underbust + 25); // 上胸围总比下胸围大
+        const waist = gen(underbust * 0.6, underbust * 0.75);
+        const hip = gen(bust * 0.8, bust * 1.1);
+        const cupTable = [
+            { diff: 10, cup: 'A' },
+            { diff: 12.5, cup: 'B' },
+            { diff: 15, cup: 'C' },
+            { diff: 17.5, cup: 'D' },
+            { diff: 20, cup: 'E' },
+            { diff: 22.5, cup: 'F' },
+            { diff: 25, cup: 'G' },
+            { diff: 27.5, cup: 'H' },
+            { diff: 30, cup: 'I' },
+            { diff: 32.5, cup: 'J' },
+            { diff: 35, cup: 'K' },
+            { diff: 37.5, cup: 'L' },
+            { diff: 40, cup: 'M' },
+            { diff: 42.5, cup: 'N' },
+        ];
+        let cup = 'A';
+        for (let i = cupTable.length - 1; i >= 0; i--) {
+            if (bust - underbust >= cupTable[i].diff) {
+                cup = cupTable[i].cup;
+                break;
+            }
+        }
 	const s = gen(1,100);
   	const height = gen(105, 245);
   	const hairColor = hairColors[Math.floor(rand()*10)];
