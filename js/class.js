@@ -215,7 +215,7 @@ export function rank(name) {
     const hash = deterministicHash(name);
     const rand = createSeededRandom(hash);
     const africaIndex = Math.floor(rand() * africaLevels.length),
-        africa = africaLevels[africaIndex];
+        africa = africaLevels[africaIndex],
         africaIntro = africa.intros[Math.floor(rand() * africa.intros.length)],
         indiaIndex = Math.floor(rand() * indiaLevels.length),
         india = indiaLevels[indiaIndex],
