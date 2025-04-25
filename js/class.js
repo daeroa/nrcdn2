@@ -216,7 +216,7 @@ export function rank(name) {
     const rand = createSeededRandom(hash);
     const africaIndex = Math.floor(rand() * africaLevels.length),
         africa = africaLevels[africaIndex];
-        africaIntro = africa.intros[Math.floor(rand() * africa.intros.length)];
+        africaIntro = africa.intros[Math.floor(rand() * africa.intros.length)],
         indiaIndex = Math.floor(rand() * indiaLevels.length),
         india = indiaLevels[indiaIndex],
         indiaIntro = india.intros[Math.floor(rand() * india.intros.length)],
