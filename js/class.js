@@ -211,7 +211,7 @@ const chinaLevels = [
     }
 ];
 		
-function rank(name) {
+export function rank(name) {
     const hash = deterministicHash(name);
     const rand = createSeededRandom(hash);
     const africaIndex = Math.floor(rand() * 5),
