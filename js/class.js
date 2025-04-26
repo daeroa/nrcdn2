@@ -15,15 +15,15 @@ function createSeededRandom(seed) {
 }
 const africaLevels = [
 	{
-	name: '农场主',
-	history: '掌握庄园所有权，拥有最高权力和财富',
-	intros: [
-    	'每天无所事事，就知道坐享其成收租金',
-    	'今天随机挑选幸运奴隶表演胸口碎大石',
-    	'坐在别墅阳台，喝着红酒，看美美哒夕阳',
-    	'庄园里奴隶的生死，只在我一念之间',
-    	'哎呀，你怎么知道我每天数钱数到手抽筋呀'
-	]
+		name: '农场主',
+		history: '掌握庄园所有权，拥有最高权力和财富',
+		intros: [
+		    	'每天无所事事，就知道坐享其成收租金',
+		    	'今天随机挑选幸运奴隶表演胸口碎大石',
+		    	'坐在别墅阳台，喝着红酒，看美美哒夕阳',
+		    	'庄园里奴隶的生死，只在我一念之间',
+		    	'哎呀，你怎么知道我每天数钱数到手抽筋呀'
+		]
 	},
     {
         name: '监工',
@@ -48,17 +48,6 @@ const africaLevels = [
         ]
     },
     {
-        name: '奴隶',
-        history: '无人身自由，被迫从事体力劳动',
-        intros: [
-            '手茧厚到可以表演空手接白刃',
-            '凌晨三点，全自动人形棉花收割机，启动',
-            '最大的愿望是吃顿饱饭',
-            '碎布条收集进度99%',
-            '每天被监工呼来来来来来，喝去去去去去'
-        ]
-    },
-    {
         name: '黑奴',
         history: '最低等的奴隶，从事最危险工作',
         intros: [
@@ -67,6 +56,17 @@ const africaLevels = [
             '脚上的镣铐迟早送我破伤风啊',
             '牛棚星空房，附赠天然淋浴系统',
             '请假已驳回：烧到39度不影响摘棉花哦'
+        ]
+    },
+    {
+        name: '奴隶',
+        history: '无人身自由，被迫从事体力劳动',
+        intros: [
+            '手茧厚到可以表演空手接白刃',
+            '凌晨三点，全自动人形棉花收割机，启动',
+            '最大的愿望是吃顿饱饭',
+            '碎布条收集进度99%',
+            '每天被监工呼来来来来来，喝去去去去去'
         ]
     },
 ];
@@ -211,21 +211,21 @@ const chinaLevels = [
     }
 ];
 		
-export function rank(name) {
+function rank(name) {
     const hash = deterministicHash(name);
     const rand = createSeededRandom(hash);
-    const africaIndex = Math.floor(rand() * africaLevels.length),
+    const africaIndex = Math.floor(rand() * 5),
         africa = africaLevels[africaIndex],
-        africaIntro = africa.intros[Math.floor(rand() * africa.intros.length)],
-        indiaIndex = Math.floor(rand() * indiaLevels.length),
+        africaIntro = africa.intros[Math.floor(rand() * 5)],
+        indiaIndex = Math.floor(rand() * 4),
         india = indiaLevels[indiaIndex],
-        indiaIntro = india.intros[Math.floor(rand() * india.intros.length)],
-        japanIndex = Math.floor(rand() * japanLevels.length),
+        indiaIntro = india.intros[Math.floor(rand() * 5)],
+        japanIndex = Math.floor(rand() * 5),
         japan = japanLevels[japanIndex],
-        japanIntro = japan.intros[Math.floor(rand() * japan.intros.length)],
-        chinaIndex = Math.floor(rand() * chinaLevels.length),
+        japanIntro = japan.intros[Math.floor(rand() * 5)],
+        chinaIndex = Math.floor(rand() * 3),
         china = chinaLevels[chinaIndex],
-        chinaIntro = china.intros[Math.floor(rand() * china.intros.length)];
+        chinaIntro = china.intros[Math.floor(rand() * 5)];
     // @ts-ignore
     return {
       "aName":`${africa.name}`,
@@ -239,6 +239,6 @@ export function rank(name) {
       "jIntr":`${japanIntro}`,
       "cName":`${china.name}`,
       "cHist":`${china.history}`,
-      "cIntr":`${chinaIntro}`
+      "cIntr":`${chinaIntro}`,
     };
 }
