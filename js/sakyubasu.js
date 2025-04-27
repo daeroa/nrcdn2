@@ -52,10 +52,7 @@ export function divine(name) {
 		const mm = String(d.getMonth() + 1).padStart(2, '0');
 		const dd = String(d.getDate()).padStart(2, '0');
 		const dateStr = `${yyyy} ${mm} ${dd}`;
-		const dailySeed = polynomialHash(name + dateStr);
-		const dailyRand = rdSeed(dailySeed);
-		const val = Math.floor(dailyRand() * 1801); 
-		exp7days.push({"日期": dateStr, "人数": val});
+		exp7days.push({"日期": dateStr, "人数": gen(0,1800,0)});
 	}
 
 	const underbust = gen(65, 95),
