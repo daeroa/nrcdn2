@@ -1,18 +1,3 @@
-function deterministicHash(name) {
-	let hash = 0;
-	for (let i = 0; i < name.length; i++) {
-		hash = (hash << 5) - hash + name.charCodeAt(i);
-	    hash |= 0;
-	}
-    return Math.abs(hash);
-}
-		
-function createSeededRandom(seed) {
-	return function() {
-	    seed = (seed * 7164 + 100000) % 233280;
-		return seed / 233280;
-	};
-}
 const africaLevels = [
 	{
 		name: '农场主',
@@ -53,8 +38,8 @@ const africaLevels = [
         intros: [
             '免费体验健身房VIP套餐：太阳棉花浴',
             '擦汗舞姿不够优美？获得监工爱的拍拍',
-            '脚上的镣铐最爱送给我破伤风',
             '请假已驳回：烧到43度不影响摘棉花哦',
+            '脚上的镣铐最爱送给我破伤风',
             '牛棚星空房，附赠纯天然淋浴系统'
         ]
     },
@@ -191,7 +176,7 @@ const chinaLevels = [
         name: '门阀士族',
         history: '垄断官场的世家大族，掌握文化与政治特权',
         intros: [
-            '族谱厚度能拿去当攻城锤用',
+            '族谱厚度≈攻城锤',
             '九品中正制专业评委已上岗',
             '藏书阁里藏着皇帝都眼馋的孤本',
             '族学考试难度>国子监自主招生',
@@ -221,35 +206,169 @@ const chinaLevels = [
         ]
     }
 ];
-		
+const egyptLevels = [
+    {
+        name: '法老',
+        history: '神权君主，被视为荷鲁斯化身',
+        intros: [
+            '今天份的日常：在神庙壁画上给自己加光环',
+            '建筑师提议把金字塔改成盲盒款，已处决',
+            '用尼罗河当游泳池的梦想即将实现',
+            '祭司们又托梦说需要扩建陵墓了',
+            '看着跪拜的贵族们思考：要不要换个活人殉葬套餐'
+        ]
+    },
+    {
+        name: '贵族',
+        history: '地方总督与神庙祭司',
+        intros: [
+            '用莎草纸写日记：今天贪污了300袋小麦',
+            '在自家金字塔里开泳池派对被法老征用',
+            '养鳄鱼当宠物以彰显权威',
+            '正在训练奴隶表演"尼罗河泛滥预言术"',
+            '和法老玩权力游戏：输的人变木乃伊'
+        ]
+    },
+    {
+        name: '书吏',
+        history: '官僚体系核心，掌握文字权力',
+        intros: [
+            '在税收账本上偷偷画猫被抓包',
+            '用象形文字写情书被当成诅咒',
+            '发明"圣书体草书"被祭司举报亵渎',
+            '靠记录法老语录混成宫廷KOL',
+            '暗搓搓在记录里丑化讨厌的贵族'
+        ]
+    },
+    {
+        name: '农民',
+        history: '承担赋税与劳役的自由民',
+        intros: [
+            '今年第108次被征调去修金字塔',
+            '用芦苇编的鞋子申请了专利',
+            '偷偷在麦田里堆微型金字塔被罚',
+            '全家口粮=神庙贡品剩下的发霉面包',
+            '向上帝祈祷：让尼罗河泛滥但别太泛滥'
+        ]
+    },
+    {
+        name: '奴隶',
+        history: '战俘与债务奴隶',
+        intros: [
+            '在采石场体验"太阳神健身套餐"',
+            '脚镣时尚秀：今年流行青铜铆钉款',
+            '被分配去测试新金字塔的通风系统',
+            '主人说"死后赐你自由"——先活到那天吧',
+            '用血泪给贵族花园挖出爱心形池塘'
+        ]
+    }
+];
+const spartaLevels = [
+    {
+        name: '斯巴达人',
+        history: '全职战士阶级',
+        intros: [
+            '今天的训练：徒手和熊玩摔跤',
+            '用敌人头骨当酒杯被妈妈表扬',
+            '在军营偷偷敷橄榄油面膜被抓现行',
+            '把希洛人当移动箭靶练射击',
+            '思考人生：杀多少个希洛人能换勋章'
+        ]
+    },
+    {
+        name: '边民',
+        history: '自由但无政治权利的手工业者',
+        intros: [
+            '打造的盾牌被斯巴达人当菜板用',
+            '偷偷给希洛人卖黑市面包被捕',
+            '申请成为斯巴达人被笑掉大牙',
+            '用战利品边角料做首饰被发现',
+            '在城墙刻"斯巴达 sucks"被罚洗全城铠甲'
+        ]
+    },
+    {
+        name: '希洛人',
+        history: '国有奴隶，可被随意屠杀',
+        intros: [
+            '年度KPI：种够粮食且不被杀掉',
+            '在粪堆里找到半块面包算加餐',
+            '被斯巴达少年当狩猎模拟器靶子',
+            '偷偷练习格斗被发现——已处决',
+            '最大的愿望：下辈子当块石头'
+        ]
+    }
+];
+function compHash(name) {
+    const scale = 10000;
+    let sin = 0, cos = 0, tan = 0, jh = 0;
+    for (let i = 0; i < name.length; i++) {
+        const charc = name.charCodeAt(i);
+        const pos = i + 1;
+        jh ^= charc;
+        jh += (jh << 10) | (jh >>> 22);
+        jh ^= (jh << 6) | (jh >>> 26);
+        jh += (jh << 3) | (jh >>> 29);
+        jh ^= (jh << 11) | (jh >>> 21);
+        jh += (jh << 15) | (jh >>> 17);
+        sin += Math.sin(charc * pos) * scale;
+        cos += Math.cos(charc * pos) * scale;
+        tan += Math.tan(charc * 0.5) * scale; 
+    }
+    return Math.abs((
+        jh +
+        Math.abs(sin | 1) +
+        Math.abs(cos | 0) +
+        Math.abs(tan | 1)
+		) | 1
+	);
+	// Jenkins Hash + Trig Hash
+}
+function rdSeed(seed) {
+	return function() {
+	    seed = (seed * 7940 + 2444340) % 233280;
+		return seed / 233280;
+	};
+}
 export function rank(name) {
-    const hash = deterministicHash(name);
-    const rand = createSeededRandom(hash);
-    const africaIndex = Math.floor(rand() * 5),
-        africa = africaLevels[africaIndex],
-        africaIntro = africa.intros[Math.floor(rand() * 5)],
-        indiaIndex = Math.floor(rand() * 5),
-        india = indiaLevels[indiaIndex],
-        indiaIntro = india.intros[Math.floor(rand() * 5)],
-        japanIndex = Math.floor(rand() * 5),
-        japan = japanLevels[japanIndex],
-        japanIntro = japan.intros[Math.floor(rand() * 5)],
-        chinaIndex = Math.floor(rand() * 3),
-        china = chinaLevels[chinaIndex],
-        chinaIntro = china.intros[Math.floor(rand() * 5)];
+    const hash = compHash(name);
+    const rand = rdSeed(hash);
+	const rd = (array, randFn, salt) => {
+	   const perturb = compHash(name + salt) % 100 / 100;
+	   const randValue = (randFn() + perturb) % 1;
+	   return array[Math.floor(randValue * array.length)];
+	};
+
+   const africa = rd(africaLevels, rand, "africa"),
+		 africaIntro = rd(africa.intros, rand, "africa_intro"),
+		 india = rd(indiaLevels, rand, "india"),
+		 indiaIntro = rd(india.intros, rand, "india_intro"),
+		 japan = rd(japanLevels, rand, "japan"),
+		 japanIntro = rd(japan.intros, rand, "japan_intro"),
+		 china = rd(chinaLevels, rand, "china"),
+		 chinaIntro = rd(china.intros, rand, "china_intro"),
+		 egypt = rd(egyptLevels, rand, "egypt"),
+		 egyptIntro = rd(egypt.intros, rand, "egypt_intro"),
+		 sparta = rd(spartaLevels, rand, "sparta"),
+		 spartaIntro = rd(sparta.intros, rand, "sparta_intro");
     // @ts-ignore
     return {
-      "aName":`${africa.name}`,
-      "aHist":`${africa.history}`,
-      "aIntr":`${africaIntro}`,
-      "iName":`${india.name}`,
-      "iHist":`${india.history}`,
-      "iIntr":`${indiaIntro}`,
-      "jName":`${japan.name}`,
-      "jHist":`${japan.history}`,
-      "jIntr":`${japanIntro}`,
-      "cName":`${china.name}`,
-      "cHist":`${china.history}`,
-      "cIntr":`${chinaIntro}`,
+		"aName":`${africa.name}`,
+		"aHist":`${africa.history}`,
+		"aIntr":`${africaIntro}`,
+		"iName":`${india.name}`,
+		"iHist":`${india.history}`,
+		"iIntr":`${indiaIntro}`,
+		"jName":`${japan.name}`,
+		"jHist":`${japan.history}`,
+		"jIntr":`${japanIntro}`,
+		"cName":`${china.name}`,
+		"cHist":`${china.history}`,
+		"cIntr":`${chinaIntro}`,
+		"eName":`${egypt.name}`,
+		"eHist":`${egypt.history}`,
+		"eIntr":`${egyptIntro}`,
+		"sName":`${sparta.name}`,
+		"sHist":`${sparta.history}`,
+		"sIntr":`${spartaIntro}`
     };
 }
