@@ -57,14 +57,27 @@ function shuffle(arr, rand) {
     }
     return r;
 }
-  
+
+function nameHash(name) {
+  let hash = 0;
+  for (let i = 0; i < name.length; i++) {
+    hash = name.charCodeAt(i) + ((hash << 7) - hash);
+    hash &= hash; 
+  }
+  return hash.toString(36).toUpperCase().padEnd(16, '0').slice(0, 16);
+}
+
+/* Abandoned
 function getProg(value) {
     const filled = '█'.repeat(Math.round(value/10));
     return filled.padEnd(10, '░') + ` ${value}%`;
 }
+*/
 export function getluck(username) {
     const today = new Date();
     const base = hashCode(username + today.toISOString().slice(0,10));
+	const hash = nameHash(username);
+	const colors = ["bg-red-500", "bg-blue-500", "bg-green-500", "bg-purple-500", "bg-pink-500", "bg-yellow-500"];
   	function getLunar() {
         const lunarMap = [
             [1,29], [2,27], [3,28], [4,27], [5,26], [6,24],
@@ -89,21 +102,26 @@ export function getluck(username) {
       	should: shuffle(luckData.shouldDo, rdSeed(base + 5)).slice(0,3),
       	avoid: shuffle(luckData.avoidDo, rdSeed(base + 6)).slice(0,3),
       	lunar: luckData.lunar[getLunar()],
-      	direction: luckData.directions[Math.floor(rdSeed(base+10)()*8)]
+      	direction: luckData.directions[Math.floor(rdSeed(base+10)()*8)],
+		color: colors[Math.floor(rdSeed(base + 6)() * colors.length)]
     };
     const total = luck.wealth + luck.love + luck.career;
     luck.rating = '★'.repeat(Math.round(total / 60)).padEnd(5, '☆');
    
-    return `
-  【${luck.date}/${luck.lunar}】${username}的今日运势：
-  🌸 综合运势：${luck.fortune}
-  💰 财运指数：${luck.wealth}（${getProg(luck.wealth)}）
-  💖 桃花指数：${luck.love}（${getProg(luck.love)}）
-  💼 事业指数：${luck.career}（${getProg(luck.career)}）
-  ⭐ 综合评级：${luck.rating}
-  
-  🧭 幸运方向：${luck.direction}
-  ✅ 宜：${luck.should.join('、')}
-  ❌ 忌：${luck.avoid.join('、')}
-  `.trim();
+    return {
+		name: `${username}`,
+		color: `${luck.color}`,
+		hash: `${hash}`,
+		date: `${luck.date}`,
+		lunar: `${luck.lunar}`,
+		fortune: `${luck.fortune}`,
+		wealth: `${luck.wealth}`,
+		love: `${luck.love}`,
+		career: `${luck.career}`,
+		should: `${luck.should}`,
+		avoid: `${luck.avoid}`,
+		direction: `${luck.direction}`,
+		total: `${Math.round(total / 60)}`,
+		stars: luck.rating
+	};
 }
