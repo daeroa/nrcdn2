@@ -1,53 +1,53 @@
 // 中二病代号前缀
 const code_prefix = [
-    "暗夜", "漆黑", "绯红", "深蓝", "白银", "黄金", 
-    "虚空", "混沌", "永恒", "无限", "绝对", "终末",
+    "暗夜", "黄金", "绯红", "深蓝", "白银", "凤凰", 
+    "虚空", "混沌", "永恒", "银河", "无限", "终末",
     "暴风", "雷霆", "烈焰", "寒冰", "大地", "天空",
-    "幻影", "幽灵", "恶魔", "天使", "龙", "凤凰",
-    "血月", "暗影", "星辰", "银河", "宇宙", "次元",
+    "幻影", "幽灵", "恶魔", "天使", "龙", "漆黑",
+    "血月", "暗影", "星辰", "次元", "宇宙", "绝对",
 	"量子", "幻奏", "永劫", "神罚", "天启", "灾厄"
 ];
 
 // 中二病代号后缀
 const code_suffix = [
-    "的使徒", "的继承者", "的化身", "的支配者", "的守护者",
+    "的使徒", "之暗", "的化身", "的支配者", "的守护者",
     "的战士", "的魔导师", "的剑士", "的勇者", "的魔王",
-    "的猎手", "的审判者", "的毁灭者", "的创造者", "的观测者",
-    "的流浪者", "的孤独者", "的复仇者", "的救世主", "的叛逆者",
+    "的猎手", "的救世主", "的毁灭者", "的创造者", "的观测者",
 	"的放逐者", "的守望者", "的调律者", "的编织者", "的殉道者",
-    "之翼", "之眼", "之牙", "之爪", "之魂", "之魇",
-    "之泪", "之血", "之影", "之光", "之暗", "之烬"
+    "之翼", "之眼", "之鞭", "之爪", "之魂", 
+	"的流浪者", "的孤独者", "的复仇者", "的叛逆者", "的审判者",
+	"之魇", "之泪", "之血", "之影", "之光", "的继承者", "之烬"
 ];
 
 // 武器类型
 const weapon = [
-    "剑", "刀", "枪", "斧", "弓", "镜子", "锤子", "镰刀", "匕首", 
-    "竖琴", "塔罗牌", "鞭子", "锁链", "红伞", "法杖", "魔导书", "符咒",
-    "水晶", "沙漏", "戒指", "齿轮", "手套", "傀儡线", "音叉"
+    "剑", "刀", "鞭", "塔罗牌", "弓", "镜子", "锤子", "镰刀", "匕首", 
+    "斧", "竖琴", "戒指", "锁链", "红伞", "法杖", "魔导书", "符咒",
+    "水晶", "沙漏", "枪", "齿轮", "手套", "傀儡线", "音叉"
 ];
 
 // 武器前缀
 const weapon_prefix = [
-    "灭世", "创世", "永恒", "无限", "终焉", "混沌", "虚空", 
-    "暗黑", "光明", "星辰", "银河", "时空", "命运", "灵魂",
-    "血之", "暗之", "光之", "风之", "火之", "水之", "雷之",
-    "圣", "魔", "邪", "神", "龙", "恶魔", "天使",
+    "星辰", "创世", "永恒", "无限", "终焉", "混沌", "虚空", 
+    "天使", "光明", "风之", "暗黑", "时空", "命运", "灵魂",
+    "血之", "暗之", "光之", "灭世", "火之", "水之", "雷之",
+    "圣", "魔", "邪", "神", "龙", "恶魔", "银河",
 	"冥", "狱", "时劫", "心灭", "星蚀", "狂想"
 ];
 
 // 武器后缀
 const weapon_suffix = [
     "毁灭者", "创造者", "终结者", "守护者", "审判者",
-    "撕裂者", "吞噬者", "燃烧者", "冻结者", "粉碎者",
-    "·改", "·极", "·真", "·幻", "·绝", "·零式", "·终型"
+    "撕裂者", "·零式", "吞噬者", "燃烧者", "冻结者", 
+	"粉碎者", "·改", "·极", "·真", "·幻", "·绝",  "·终型"
 ];
 
 // 宿敌身份
 const enemy = [
-	"体内封印的另一个灵魂","失散多年的双胞胎",
+	"体内封印的另一个灵魂", "分裂出的另一个实体化人格",
 	"内心黑暗的那一面", "陷入黑化的救赎对象",
-	"来自未来的追杀者", "童年时那不可描述的噩梦",
-	"分裂出的另一个实体化人格", "深渊那古老的存在",
+	"来自未来的追杀者", "童年时不可描述的噩梦",
+	"深渊古老的存在", "失散多年的双胞胎",
 	"组织内的叛徒", "所杀之人的复仇之灵",
 	"卷土重来的宿敌", "已经堕入黑暗的导师",
 ];
@@ -80,16 +80,16 @@ const spattack = [
     "虚空斩击", "永恒冰封", "烈焰风暴", "雷霆万钧", "大地碎裂",
     "天使之泪", "恶魔之吻", "龙之吐息", "凤凰涅槃", "灵魂收割",
     "命运之轮", "时空断裂", "银河冲击", "宇宙爆炸", "次元切割",
-	"诸神黄昏","天地乖离","永劫轮回","超新星爆发", "量子坍缩",
-	"冥府之门","天魔降伏","神怒之日","时空归零", "因果逆转",
-	"终焉默示录","万物寂灭","创世纪","虚空吞噬", "维度跌落"
+	"诸神黄昏", "天地乖离", "永劫轮回", "超新星爆发", "量子坍缩",
+	"冥府之门", "天魔降伏", "神怒之日", "时空归零", "因果逆转",
+	"终焉默示录", "万物寂灭", "创世纪", "虚空吞噬", "维度跌落"
 ];
 
 // 职业
 const combat = {
-	phy: ["狂战士","剑圣","暗杀者","枪神","格斗家","龙骑士","机甲驾驶员","狂猎骑士","修罗"],
-	mag: ["大魔导师","死灵术士","元素使","预言家","结界师","星律者","虚空咏唱者","混沌术士","终焉魔女"],
-	hyb: ["魔剑士","圣骑士","咒刃使","炼金术士","神谕者","时空旅者","深渊行者","禁忌融合体"]
+	phy: ["狂战士", "机甲驾驶员", "暗杀者", "枪神", "格斗家", "龙骑士", "剑圣", "狂猎骑士", "修罗"],
+	mag: ["大魔导师", "死灵术士", "元素使", "预言家", "结界师", "星律者", "虚空咏唱者", "混沌术士", "终焉魔女"],
+	hyb: ["魔剑士", "圣骑士", "咒刃使", "炼金术士", "神谕者", "时空旅者", "深渊行者", "禁忌融合体"]
 };
 
 // 角色定位
@@ -103,17 +103,17 @@ const role = [
 ];
 
 // 元素弱点（原神启动）
-const element = ["风", "雷", "岩", "草", "水", "冰", "火"];
+const element = ["风", "冰", "雷", "草", "岩", "水", "火"];
 
 // 被动技能库
 const passive = [
-	"血之狂暴：HP<30%时ATK翻倍",
-	"亲元素：对应属性伤害+40%",
-	"逆鳞：受暴击后DEF+100%",
+	"血之狂暴：HP<20%时ATK翻倍",
 	"时空扭曲：CD-20%",
-	"灵魂虹吸：15%伤害转HP",
-	"绝对领域：免疫控制",
-	"弑神者：对BOSS伤害+50%",
+	"亲元素：对应属性伤害+100%",
+	"逆鳞：受暴击后DEF+120%",
+	"灵魂虹吸：18%伤害转HP",
+	"绝对领域：免疫全体控制",
+	"弑神者：对BOSS伤害+75%",
 	"无尽怒火：HP越低攻速越快",
 	"虚空行走：闪避率+35%",
 	"终焉：战斗时间越长ATK越高"
@@ -121,11 +121,21 @@ const passive = [
 
 // 势力阵营
 const faction = [
-	"深渊教团·执行官序列","圣光教会·异端审判庭","虚空议会·星界观测者",
-	"炼金协会·禁忌研究所","暗影兄弟会·无名者","永恒帝国·皇家骑士团",
-	"绯红魔女结社","机神教·改造人部队","古龙一族·鳞之长老",
-	"时空管理局·特勤科","终焉教派·灭世使徒","自由佣兵·血狼团"
+    "深渊统合集团·执行官序列", "圣光裁决机关·异端肃清部",
+    "虚空星象综合解析局", "禁域实验体收容室",
+    "永恒帝国流放星区改造舰队", "永恒帝国皇家机甲旅",
+    "星穹远征军·铁道突击营", "终焉机关·概念抹杀局",
+    "绯红魔女战术学院教员团", "机神革新阵线·义体强化旅",
+    "时空管理局·因果修正科", "时空管理局·特殊勤务科",
+	"时空管理局·裂缝监管科", "时空管理局·虚数统御科",
+	"时空管理局·平行域界科", "时空管理局·临界治安科",
+	"星穹远征军·量子制导中枢", "湮灭信标清算执行小组"
 ];
+
+// 混合系列
+const wp_phy = ["剑", "刀", "枪", "弓", "锤子", "镰刀", "匕首", "斧", "锁链", "鞭", "齿轮"];
+const wp_mag = ["塔罗牌", "红伞", "法杖", "魔导书", "符咒", "水晶", "傀儡线", "音叉"];
+const wp_hyb = ["竖琴", "镜子", "戒指", "沙漏", "手套"];
 
 // 出场语录部分
 const bteffect = [
@@ -167,7 +177,7 @@ function polynomialHash(name) {
 
 function rdSeed(seed) {
     return function() {
-        seed = (seed * 9797 + 908141) % 233280;
+        seed = (seed * 9797 + 557633) % 233280;
         return seed / 233280;
     };
 }
@@ -184,31 +194,53 @@ function codename(name) {
     return rdC(code_prefix, random) + rdC(code_suffix, random);
 }
 
-function combatkind(name, wp) {
-	const hash = polynomialHash(name + "stats");
-	const rand = rdSeed(hash);
-	const isPhysical = ["剑","刀","枪","斧","弓","锤","镰刀","匕首","拳套","爪"].includes(wp);
-	return {
-		CD: `${Math.floor(rand()*8+12)}-${Math.floor(rand()*4+4)}s`, // 12-20s -> 4-8s
-		HP: Math.floor(rand()*50000 + 10000), // 10000-60000
-		ATK: Math.floor(rand()*(isPhysical ? 3000 : 1500) + 1000),
-		DEF: Math.floor(rand()*2000 + 500),
-		MP: isPhysical ? 0 : Math.floor(rand()*3000 + 1000)
-	};
+// 职业数值
+function combatkind(name, wp, rtype = "进攻") {
+    const hash = polynomialHash(name + "stats");
+    const rand = rdSeed(hash);
+    const rolemod = {
+        "进攻": { ATK: 1.3, HP: 0.9, MP: 0.8, DEF: 1.0 },
+        "防御": { ATK: 0.7, HP: 1.2, MP: 0.6, DEF: 1.5 },
+        "治疗": { ATK: 0.6, HP: 1.0, MP: 1.5, DEF: 1.0 },
+        "控制": { ATK: 0.8, HP: 0.9, MP: 1.3, DEF: 1.1 },
+        "召唤": { ATK: 1.0, HP: 0.9, MP: 1.2, DEF: 1.0 },
+        "辅助": { ATK: 0.8, HP: 1.0, MP: 1.3, DEF: 1.2 }
+		};
+    const isphy = wp_phy.includes(wp),
+          ismag = wp_mag.includes(wp),
+          ishyb = wp_hyb.includes(wp),
+		  rmod = rolemod[rtype] || rolemod["进攻"],
+		  baseHP = 20000 + rand() * 80000,
+		  baseATK = 300 + rand() * 4000,
+		  baseDEF = 330 + rand() * 4000;
+    let baseMP;
+    if (isphy) baseMP = rand() * 100; 
+    else if (ishyb) baseMP = 500 + rand() * 1500; 
+    else if (ismag) baseMP = 1500 + rand() * 1500; 
+    else baseMP = rand() * 3000;
+    return {
+        CD: `${Math.floor(rand()*6 + 15)}-${Math.floor(rand()*3 + 5)}s`,
+        HP: Math.floor(baseHP * rmod.HP),
+        ATK: Math.floor(baseATK * rmod.ATK),
+        DEF: Math.floor(baseDEF * rmod.DEF),
+        MP: Math.floor(baseMP * rmod.MP)
+    };
 }
 
+// 职业2
 function combatType(wp) {
-	const mgwp = ["法杖","魔导书","符咒","水晶"];
-	return mgwp.includes(wp) ? "mag" : 
-         ["书","宝石","戒指"].includes(wp) ? "hyb" : "phy";
+	if (wp_mag.includes(wp)) return "mag";
+	if (wp_hyb.includes(wp)) return "hyb";
+	return "phy";
 }
 
-function weakness(rand) {
-	const weaks = [], 
-		  pool = element.filter(e => !["虚无"].includes(e));
-	while(weaks.length < 3 && pool.length > 0) {
+// 弱点击破
+function weakness(rand, exclude) {
+	const weaks = [],
+	      pool = element.filter(e => e !== exclude);
+	while (weaks.length < 3 && pool.length > 0) {
 		const ele = rdC(pool, rand);
-		if(!weaks.includes(ele)) weaks.push(ele);
+		if (!weaks.includes(ele)) weaks.push(ele);
 	}
 	return weaks;
 }
@@ -262,44 +294,45 @@ function bmonologue(name) {
 	].join(' ');
 }
 
-function roleinfo(name) {
+// 角色详情
+function roleinfo(name, wp) {
 	const hash = polynomialHash(name + "role");
 	const rand = rdSeed(hash);
-	const wptype = rdC(weapon, rdSeed(polynomialHash(name+"weapon"))),
-		  cbtype = combatType(wptype);
+	const cbtype = combatType(wp),
+		  elem = rdC(element, rand);
 	return {
 		title: rdC(combat[cbtype], rand),
 		role: rdC(role, rand),
-		weakness: weakness(rand),
+		weakness: weakness(rand, elem),
 		passive: rdC(passive, rand),
 		faction: rdC(faction, rand),
-		element: rdC(element.filter(e => !["虚无"].includes(e)), rand)
+		element: elem
 	};
 }
 
-// 主函数
+// 主函
 export function zer(name) {
 	const wpname = weapoon(name);
     const wptype = wpname.replace(/[^\u4e00-\u9fa5]/g, "").slice(-2);
-    const rdtitle = rdSeed(polynomialHash(name+"title"));
-    const rdsecret = rdSeed(polynomialHash(name+"secret"));
+    const rdtitle = rdSeed(polynomialHash(name+"title")),
+		  rdsecret = rdSeed(polynomialHash(name+"secret")),
+		  roletype = rdC(role, rdSeed(polynomialHash(name + "role"))).type;
 	return {
 		codeName: codename(name),
 		weapon: wpname,
 		enemy: enemies(name),
 		quote: quotes(name),
 		monologue: bmonologue(name),
-		stats: combatkind(name, wptype),
-		roleInfo: roleinfo(name),
+		stats: combatkind(name, wptype, roletype),
+		roleInfo: roleinfo(name, wptype),
 		lore: {
 			title: rdC(["禁忌之子","旧日支配者","轮回转生者","人造神明","基因改造体","时空异常点"], rdtitle),
 			secret: rdC([
 				"无", "未知",
-				"左眼封印灭世之力","心脏是魔导核心",
-				"血液含龙族基因","记忆被多次篡改",
-				"体内寄生上古魔神","大脑植入战斗芯片",
+				"心脏是魔导核心", "血液含龙族基因",
+				"记忆被多次篡改", "大脑植入战斗芯片",
 				"灵魂来自异世界","是克隆实验体",
-				"携带末日病毒","拥有双重人格"
+				"拥有双重人格"
 			], rdsecret).replace("无", "").replace("未知", "▮▮▮▮▮▮▮▮")
 		}
 	};
