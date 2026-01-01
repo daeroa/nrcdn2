@@ -1,0 +1,303 @@
+/* sicaptcha-styles.css
+/* No copy
+
+/* =========================================================================
+   light
+   ========================================================================= */
+:root {
+  --sicaptcha-bg: #fafafa;
+  --sicaptcha-border: #e0e0e0;
+  --sicaptcha-hover-bg: #f1f8f4;
+  --sicaptcha-text: #555;
+  --sicaptcha-success-bg: #e8f5e9;
+  --sicaptcha-success-border: #4CAF50;
+  --sicaptcha-success-track: #81C784;
+  --sicaptcha-expiring-bg: #fff3e0;
+  --sicaptcha-expiring-border: #FF9800;
+  --sicaptcha-error-bg: #ffebee;
+  --sicaptcha-error-border: #f44336;
+  --sicaptcha-error-track: #EF9A9A;
+  --sicaptcha-modal-bg: white;
+  --sicaptcha-modal-shadow: rgba(0,0,0,0.25);
+  --sicaptcha-title: #333;
+  --sicaptcha-hint: #666;
+  --sicaptcha-hint-success: #4CAF50;
+  --sicaptcha-hint-error: #f44336;
+  --sicaptcha-close: #999;
+  --sicaptcha-close-hover: #333;
+  --sicaptcha-slider-track: #e0e0e0;
+  --sicaptcha-slider-thumb: #2196F3;
+  --sicaptcha-slider-thumb-hover: #1976D2;
+  --sicaptcha-initial-track: #90CAF9;
+  --sicaptcha-privacy: #999;
+  --sicaptcha-privacy-hover: #4CAF50;
+  --sicaptcha-image-border: #f0f0f0;
+  --sicaptcha-fail-bg: #f44336;
+  --sicaptcha-box-shadow: rgba(0,0,0,0.05);
+  --sicaptcha-info-icon: #2196F3;
+}
+
+/* =========================================================================
+   dark
+   ========================================================================= */
+[data-theme="dark"] {
+  --sicaptcha-bg: #2a2a2a;
+  --sicaptcha-border: #444;
+  --sicaptcha-hover-bg: #2d3a2d;
+  --sicaptcha-text: #ccc;
+  --sicaptcha-success-bg: #1b2b1b;
+  --sicaptcha-success-border: #66BB6A;
+  --sicaptcha-success-track: #81C784;
+  --sicaptcha-expiring-bg: #3a2a1a;
+  --sicaptcha-expiring-border: #FFA726;
+  --sicaptcha-error-bg: #3a1a1a;
+  --sicaptcha-error-border: #EF5350;
+  --sicaptcha-error-track: #EF9A9A;
+  --sicaptcha-modal-bg: #1e1e1e;
+  --sicaptcha-modal-shadow: rgba(0,0,0,0.5);
+  --sicaptcha-title: #e0e0e0;
+  --sicaptcha-hint: #aaa;
+  --sicaptcha-hint-success: #66BB6A;
+  --sicaptcha-hint-error: #EF5350;
+  --sicaptcha-close: #aaa;
+  --sicaptcha-close-hover: #fff;
+  --sicaptcha-slider-track: #444;
+  --sicaptcha-slider-thumb: #42A5F5;
+  --sicaptcha-slider-thumb-hover: #1E88E5;
+  --sicaptcha-initial-track: #64B5F6;
+  --sicaptcha-privacy: #aaa;
+  --sicaptcha-privacy-hover: #66BB6A;
+  --sicaptcha-image-border: #333;
+  --sicaptcha-fail-bg: #EF5350;
+  --sicaptcha-box-shadow: rgba(0,0,0,0.2);
+  --sicaptcha-info-icon: #64B5F6;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --sicaptcha-bg: #2a2a2a;
+    --sicaptcha-border: #444;
+    --sicaptcha-hover-bg: #2d3a2d;
+    --sicaptcha-text: #ccc;
+    --sicaptcha-success-bg: #1b2b1b;
+    --sicaptcha-success-border: #66BB6A;
+    --sicaptcha-success-track: #81C784;
+    --sicaptcha-expiring-bg: #3a2a1a;
+    --sicaptcha-expiring-border: #FFA726;
+    --sicaptcha-error-bg: #3a1a1a;
+    --sicaptcha-error-border: #EF5350;
+    --sicaptcha-error-track: #EF9A9A;
+    --sicaptcha-modal-bg: #1e1e1e;
+    --sicaptcha-modal-shadow: rgba(0,0,0,0.5);
+    --sicaptcha-title: #e0e0e0;
+    --sicaptcha-hint: #aaa;
+    --sicaptcha-hint-success: #66BB6A;
+    --sicaptcha-hint-error: #EF5350;
+    --sicaptcha-close: #aaa;
+    --sicaptcha-close-hover: #fff;
+    --sicaptcha-slider-track: #444;
+    --sicaptcha-slider-thumb: #42A5F5;
+    --sicaptcha-slider-thumb-hover: #1E88E5;
+    --sicaptcha-initial-track: #64B5F6;
+    --sicaptcha-privacy: #aaa;
+    --sicaptcha-privacy-hover: #66BB6A;
+    --sicaptcha-image-border: #333;
+    --sicaptcha-fail-bg: #EF5350;
+    --sicaptcha-box-shadow: rgba(0,0,0,0.2);
+    --sicaptcha-info-icon: #64B5F6;
+  }
+}
+
+/* =========================================================================
+   main
+   ========================================================================= */
+.sicaptcha[data-isolate] {
+  width: 280px !important;
+  height: 60px !important;
+  border: 3px solid var(--sicaptcha-border) !important;
+  border-radius: 16px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  cursor: default !important;
+  background: var(--sicaptcha-bg) !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  user-select: none !important;
+  position: relative !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif !important;
+  box-shadow: 0 4px 12px var(--sicaptcha-box-shadow), 
+              0 0 0 1px rgba(255, 255, 255, 0.1) inset !important;
+  padding: 0 15px !important;
+  margin: 0 !important;
+  box-sizing: border-box !important;
+}
+
+/* hover */
+.sicaptcha[data-isolate] .sicaptcha-left-icon:hover:not(.verified):not(.loading):not(.disabled) {
+  transform: scale(1.1) !important;
+}
+
+/* ok */
+.sicaptcha[data-isolate].verified {
+  border-color: var(--sicaptcha-success-border) !important;
+  background: var(--sicaptcha-success-bg) !important;
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.15), 
+              0 0 0 1px rgba(76, 175, 80, 0.2) inset !important;
+}
+
+/* about to expired） */
+.sicaptcha[data-isolate].expiring {
+  border-color: var(--sicaptcha-expiring-border) !important;
+  background: var(--sicaptcha-expiring-bg) !important;
+  animation: pulse 1s infinite !important;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+/* loading */
+.sicaptcha[data-isolate].loading {
+  border-color: var(--sicaptcha-slider-thumb) !important;
+  background: linear-gradient(90deg, 
+    var(--sicaptcha-bg) 0%, 
+    var(--sicaptcha-hover-bg) 50%, 
+    var(--sicaptcha-bg) 100%) !important;
+  background-size: 200% 100% !important;
+  animation: loading-shimmer 1.5s infinite !important;
+}
+
+/* loading border */
+.sicaptcha[data-isolate].loading {
+  animation: borderPulse 1.5s infinite ease-in-out, loading-shimmer 1.5s infinite !important;
+}
+
+@keyframes borderPulse {
+  0%, 100% { 
+    border-color: var(--sicaptcha-slider-thumb);
+    box-shadow: 0 0 0 0 rgba(33, 150, 243, 0.4);
+  }
+  50% { 
+    border-color: #42A5F5;
+    box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.1);
+  }
+}
+
+@keyframes loading-shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* forbidden/locked */
+.sicaptcha[data-isolate].disabled {
+  cursor: not-allowed !important;
+  opacity: 0.6 !important;
+  border-color: var(--sicaptcha-error-border) !important;
+  background: var(--sicaptcha-error-bg) !important;
+  box-shadow: 0 4px 12px rgba(244, 67, 54, 0.15), 
+              0 0 0 1px rgba(244, 67, 54, 0.2) inset !important;
+}
+
+/* left text+icon） */
+.sicaptcha[data-isolate] .sicaptcha-left-section {
+  display: flex !important;
+  align-items: center !important;
+  flex: 1 !important;
+  position: relative !important;
+}
+
+/* left icon-div */
+.sicaptcha[data-isolate] .sicaptcha-left-icon {
+  width: 32px !important;
+  height: 32px !important;
+  margin-right: 12px !important;
+  cursor: pointer !important;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55) !important;
+  flex-shrink: 0 !important;
+  position: relative !important;
+}
+
+.sicaptcha[data-isolate] .sicaptcha-left-icon:hover:not(.loading):not(.disabled) {
+  cursor: pointer !important;
+}
+
+/* loading anime */
+.sicaptcha[data-isolate] .sicaptcha-loading-spinner {
+  display: none !important;
+  width: 28px !important;
+  height: 28px !important;
+  border: 3px solid transparent !important;
+  border-top: 3px solid var(--sicaptcha-slider-thumb) !important;
+  border-radius: 50% !important;
+  animation: spin 1s linear infinite !important;
+  position: absolute !important;
+  left: 2px !important;
+  top: 2px !important;
+}
+
+.sicaptcha[data-isolate].loading .sicaptcha-left-icon svg {
+  display: none !important;
+}
+
+.sicaptcha[data-isolate].loading .sicaptcha-loading-spinner {
+  display: block !important;
+}
+
+.sicaptcha[data-isolate].loading .sicaptcha-text {
+  display: block !important;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* texts */
+.sicaptcha[data-isolate] .sicaptcha-text {
+  font-size: 15px !important;
+  color: var(--sicaptcha-text) !important;
+  font-weight: 500 !important;
+  transition: color 0.3s !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.sicaptcha[data-isolate] .sicaptcha-text.verified {
+  color: var(--sicaptcha-success-border) !important;
+}
+
+.sicaptcha[data-isolate] .sicaptcha-text.error {
+  color: var(--sicaptcha-error-border) !important;
+}
+
+.sicaptcha[data-isolate] .sicaptcha-text.expired {
+  color: var(--sicaptcha-expiring-border) !important;
+}
+
+/* policy */
+.sicaptcha[data-isolate] .sicaptcha-info-btn {
+  width: 20px !important;
+  height: 20px !important;
+  flex-shrink: 0 !important;
+  margin-left: 10px !important;
+  cursor: pointer !important;
+  color: var(--sicaptcha-info-icon) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: all 0.2s ease !important;
+}
+
+.sicaptcha[data-isolate] .sicaptcha-info-btn:hover {
+  color: var(--sicaptcha-privacy-hover) !important;
+  transform: scale(1.1) !important;
+}
+
+.sicaptcha[data-isolate] .sicaptcha-info-btn svg {
+  width: 100% !important;
+  height: 100% !important;
+}
