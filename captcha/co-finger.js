@@ -1,4 +1,4 @@
-function gendfp() {
+export function gendfp() {
       try {
         const components = [];
     
@@ -60,6 +60,7 @@ function gendfp() {
           hash = hash & hash;
         }
         this.deviceFingerprint = Math.abs(hash).toString(16).padStart(32, '0');
+        return this.deviceFingerprint;
       } catch (error) {
         const timestamp = Date.now().toString();
         let deterministicHash = 0;
@@ -68,5 +69,6 @@ function gendfp() {
           deterministicHash = deterministicHash & deterministicHash;
         }
         this.deviceFingerprint = Math.abs(deterministicHash).toString(16).padStart(32, '0');
+        return this.deviceFingerprint;
       }
     }
